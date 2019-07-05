@@ -1,13 +1,14 @@
 <template>
   <section class="msite">
     <!--首页头部-->
-    <Header title="外卖地址栏:北京市昌平区北七家"></Header>
-    <span class="header_search" slot="left">
-      <i class="iconfont icon-sousuo"></i>
-    </span>
-    <span class="header_login" slot="right">
-      <span class="header_login_text" @click="$router.push('/login')">登录|注册</span>
-    </span>
+    <Header title="外卖地址栏:北京市昌平区北七家">
+      <span class="header_search" slot="left">
+        <i class="iconfont icon-sousuo"></i>
+      </span>
+      <span class="header_login" slot="right">
+        <span class="header_login_text" @click="$router.push('/login')">登录|注册</span>
+      </span>
+    </Header>
 
     <!--首页导航-->
     <nav class="msite_nav">
