@@ -2,7 +2,7 @@
   <section class="msite">
     <!--首页头部-->
     <Header title="外卖地址栏:北京市昌平区北七家">
-      <span class="header_search" slot="left">
+      <span class="header_search" slot="left" @click="$router.push('/search')">
         <i class="iconfont icon-sousuo"></i>
       </span>
       <span class="header_login" slot="right">
@@ -125,11 +125,24 @@
 </template>
 
 <script type="text/ecmascript-6">
+import Swiper from "swiper";
+import "swiper/dist/css/swiper.min.css";
 import ShopList from "../../components/ShopList/ShopList";
 export default {
   name: "Msite",
   components: {
     ShopList
+  },
+  mounted() {
+    new Swiper(".swiper-container", {
+      loop: true, // 循环模式选项
+      // 如果需要分页器
+      pagination: {
+        el: ".swiper-pagination"
+      },
+      observer: true, //修改swiper自己或子元素时，自动初始化swiper
+      observeParents: true //修改swiper的父元素时，自动初始化swiper
+    });
   }
 };
 </script>
@@ -186,6 +199,6 @@ export default {
               color #666
 
       .swiper-pagination
-        >span.swiper-pagination-bullet-active
+        .swiper-pagination-bullet-active
           background #02a774
 </style>

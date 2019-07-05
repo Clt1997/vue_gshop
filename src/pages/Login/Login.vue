@@ -4,13 +4,13 @@
       <div class="login_header">
         <h2 class="login_logo">硅谷外卖</h2>
         <div class="login_header_title">
-          <a href="javascript:;" class="on">短信登录</a>
-          <a href="javascript:;">密码登录</a>
+          <a href="javascript:;" :class="{on:ison}" @click="ison=true">短信登录</a>
+          <a href="javascript:;" :class="{on:!ison}" @click="ison=false">密码登录</a>
         </div>
       </div>
       <div class="login_content">
         <form>
-          <div class="on">
+          <div :class="{on:ison}">
             <section class="login_message">
               <input type="tel" maxlength="11" placeholder="手机号" />
               <button disabled="disabled" class="get_verification">获取验证码</button>
@@ -23,14 +23,14 @@
               <a href="javascript:;">《用户服务协议》</a>
             </section>
           </div>
-          <div>
+          <div :class="{on:!ison}">
             <section>
               <section class="login_message">
                 <input type="tel" maxlength="11" placeholder="手机/邮箱/用户名" />
               </section>
               <section class="login_verification">
                 <input type="tel" maxlength="8" placeholder="密码" />
-                <div class="switch_button off">
+                <div class="switch_button on">
                   <div class="switch_circle"></div>
                   <span class="switch_text">...</span>
                 </div>
@@ -53,7 +53,12 @@
 </template>
 
 <script type="text/ecmascript-6">
-export default {};
+export default {
+  name: "Login",
+  data: {
+    ison: true
+  }
+};
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
